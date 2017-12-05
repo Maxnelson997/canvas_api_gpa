@@ -1,0 +1,820 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22B158D0CECB08120F9C6D63 /* Pods_college_gpa_calculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1223550C24CA834D5E1BCB19 /* Pods_college_gpa_calculatorTests.framework */; };
+		57F3702804D29836020A30C6 /* Pods_college_gpa_calculatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8931DCF8F5C1C529EF1CF5AF /* Pods_college_gpa_calculatorUITests.framework */; };
+		79126E6F1F38CF55002D640C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79126E6E1F38CF55002D640C /* AppDelegate.swift */; };
+		79126E711F38CF55002D640C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79126E701F38CF55002D640C /* MainController.swift */; };
+		79126E771F38CF55002D640C /* college_gpa_calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79126E751F38CF55002D640C /* college_gpa_calculator.xcdatamodeld */; };
+		79126E791F38CF55002D640C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79126E781F38CF55002D640C /* Assets.xcassets */; };
+		79126E7C1F38CF55002D640C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79126E7A1F38CF55002D640C /* LaunchScreen.storyboard */; };
+		79126E871F38CF55002D640C /* college_gpa_calculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79126E861F38CF55002D640C /* college_gpa_calculatorTests.swift */; };
+		79126E921F38CF55002D640C /* college_gpa_calculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79126E911F38CF55002D640C /* college_gpa_calculatorUITests.swift */; };
+		793C28391F397E4600C05C4F /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C28381F397E4600C05C4F /* extension.swift */; };
+		7942E68B1F3C1491007F54E9 /* NewSemesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7942E68A1F3C1491007F54E9 /* NewSemesterView.swift */; };
+		7968A25D1F3D593C0084EEF7 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7968A2581F3D593C0084EEF7 /* MavenPro-Black.ttf */; };
+		7968A25E1F3D593C0084EEF7 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7968A2591F3D593C0084EEF7 /* MavenPro-Bold.ttf */; };
+		7968A25F1F3D593C0084EEF7 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7968A25A1F3D593C0084EEF7 /* MavenPro-Medium.ttf */; };
+		7968A2601F3D593C0084EEF7 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7968A25B1F3D593C0084EEF7 /* MavenPro-Regular.ttf */; };
+		7968A2611F3D593C0084EEF7 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7968A25C1F3D593C0084EEF7 /* OFL.txt */; };
+		7969A04A1F3925F800923C68 /* GPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969A0491F3925F800923C68 /* GPLabel.swift */; };
+		7969A04C1F39269100923C68 /* GPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969A04B1F39269100923C68 /* GPView.swift */; };
+		7969A04E1F39271600923C68 /* GPFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969A04D1F39271600923C68 /* GPFlipView.swift */; };
+		7969A0501F3932B500923C68 /* GPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969A04F1F3932B500923C68 /* GPModel.swift */; };
+		7969A0521F3949DC00923C68 /* GPCellViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969A0511F3949DC00923C68 /* GPCellViews.swift */; };
+		799D35561FD5D5BB005E7556 /* IAPPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799D35551FD5D5BB005E7556 /* IAPPopup.swift */; };
+		799D355A1FD5E156005E7556 /* columnlayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799D35591FD5E156005E7556 /* columnlayout.swift */; };
+		79C40C0D1FD519FE00280986 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C40C0C1FD519FE00280986 /* SettingsView.swift */; };
+		79EF888E1F3D19610025A838 /* NewClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF888D1F3D19610025A838 /* NewClassView.swift */; };
+		79EF88901F3D269A0025A838 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF888F1F3D269A0025A838 /* ViewModel.swift */; };
+		F6374B4AF59413361EBC7FFB /* Pods_college_gpa_calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 920210E14C150891BE5C0979 /* Pods_college_gpa_calculator.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79126E831F38CF55002D640C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79126E631F38CF54002D640C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79126E6A1F38CF54002D640C;
+			remoteInfo = "college-gpa-calculator";
+		};
+		79126E8E1F38CF55002D640C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79126E631F38CF54002D640C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79126E6A1F38CF54002D640C;
+			remoteInfo = "college-gpa-calculator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1223550C24CA834D5E1BCB19 /* Pods_college_gpa_calculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_college_gpa_calculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23B7485D97466804D81DA6D4 /* Pods-college-gpa-calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-college-gpa-calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-college-gpa-calculator/Pods-college-gpa-calculator.release.xcconfig"; sourceTree = "<group>"; };
+		25C78BE37FCB745DC77D0732 /* Pods-college-gpa-calculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-college-gpa-calculatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-college-gpa-calculatorTests/Pods-college-gpa-calculatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		34563AAD6D45EF9E2759062E /* Pods-college-gpa-calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-college-gpa-calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-college-gpa-calculator/Pods-college-gpa-calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		59CC1C0BCB53D23FA63359A4 /* Pods-college-gpa-calculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-college-gpa-calculatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-college-gpa-calculatorTests/Pods-college-gpa-calculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		79126E6B1F38CF55002D640C /* college-gpa-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "college-gpa-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79126E6E1F38CF55002D640C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		79126E701F38CF55002D640C /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		79126E761F38CF55002D640C /* college_gpa_calculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = college_gpa_calculator.xcdatamodel; sourceTree = "<group>"; };
+		79126E781F38CF55002D640C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79126E7B1F38CF55002D640C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79126E7D1F38CF55002D640C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79126E821F38CF55002D640C /* college-gpa-calculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "college-gpa-calculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79126E861F38CF55002D640C /* college_gpa_calculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = college_gpa_calculatorTests.swift; sourceTree = "<group>"; };
+		79126E881F38CF55002D640C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79126E8D1F38CF55002D640C /* college-gpa-calculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "college-gpa-calculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79126E911F38CF55002D640C /* college_gpa_calculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = college_gpa_calculatorUITests.swift; sourceTree = "<group>"; };
+		79126E931F38CF55002D640C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		793C28381F397E4600C05C4F /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		7942E68A1F3C1491007F54E9 /* NewSemesterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSemesterView.swift; sourceTree = "<group>"; };
+		7968A2581F3D593C0084EEF7 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
+		7968A2591F3D593C0084EEF7 /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
+		7968A25A1F3D593C0084EEF7 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
+		7968A25B1F3D593C0084EEF7 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
+		7968A25C1F3D593C0084EEF7 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		7969A0491F3925F800923C68 /* GPLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPLabel.swift; sourceTree = "<group>"; };
+		7969A04B1F39269100923C68 /* GPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPView.swift; sourceTree = "<group>"; };
+		7969A04D1F39271600923C68 /* GPFlipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPFlipView.swift; sourceTree = "<group>"; };
+		7969A04F1F3932B500923C68 /* GPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPModel.swift; sourceTree = "<group>"; };
+		7969A0511F3949DC00923C68 /* GPCellViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPCellViews.swift; sourceTree = "<group>"; };
+		799D35551FD5D5BB005E7556 /* IAPPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPPopup.swift; sourceTree = "<group>"; };
+		799D35591FD5E156005E7556 /* columnlayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = columnlayout.swift; sourceTree = "<group>"; };
+		79C40C0C1FD519FE00280986 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		79EF888D1F3D19610025A838 /* NewClassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClassView.swift; sourceTree = "<group>"; };
+		79EF888F1F3D269A0025A838 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		7DF77E45CBBF5F9019EDAAFB /* Pods-college-gpa-calculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-college-gpa-calculatorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-college-gpa-calculatorUITests/Pods-college-gpa-calculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8931DCF8F5C1C529EF1CF5AF /* Pods_college_gpa_calculatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_college_gpa_calculatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		920210E14C150891BE5C0979 /* Pods_college_gpa_calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_college_gpa_calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9409D2788A63326B62703B19 /* Pods-college-gpa-calculatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-college-gpa-calculatorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-college-gpa-calculatorUITests/Pods-college-gpa-calculatorUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79126E681F38CF54002D640C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6374B4AF59413361EBC7FFB /* Pods_college_gpa_calculator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79126E7F1F38CF55002D640C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B158D0CECB08120F9C6D63 /* Pods_college_gpa_calculatorTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79126E8A1F38CF55002D640C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57F3702804D29836020A30C6 /* Pods_college_gpa_calculatorUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40F58AFB33557E49EF12F306 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				34563AAD6D45EF9E2759062E /* Pods-college-gpa-calculator.debug.xcconfig */,
+				23B7485D97466804D81DA6D4 /* Pods-college-gpa-calculator.release.xcconfig */,
+				59CC1C0BCB53D23FA63359A4 /* Pods-college-gpa-calculatorTests.debug.xcconfig */,
+				25C78BE37FCB745DC77D0732 /* Pods-college-gpa-calculatorTests.release.xcconfig */,
+				7DF77E45CBBF5F9019EDAAFB /* Pods-college-gpa-calculatorUITests.debug.xcconfig */,
+				9409D2788A63326B62703B19 /* Pods-college-gpa-calculatorUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		55B03C04DB2425A1671E5027 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				920210E14C150891BE5C0979 /* Pods_college_gpa_calculator.framework */,
+				1223550C24CA834D5E1BCB19 /* Pods_college_gpa_calculatorTests.framework */,
+				8931DCF8F5C1C529EF1CF5AF /* Pods_college_gpa_calculatorUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79126E621F38CF54002D640C = {
+			isa = PBXGroup;
+			children = (
+				79126E6D1F38CF55002D640C /* college-gpa-calculator */,
+				79126E851F38CF55002D640C /* college-gpa-calculatorTests */,
+				79126E901F38CF55002D640C /* college-gpa-calculatorUITests */,
+				79126E6C1F38CF55002D640C /* Products */,
+				40F58AFB33557E49EF12F306 /* Pods */,
+				55B03C04DB2425A1671E5027 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		79126E6C1F38CF55002D640C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79126E6B1F38CF55002D640C /* college-gpa-calculator.app */,
+				79126E821F38CF55002D640C /* college-gpa-calculatorTests.xctest */,
+				79126E8D1F38CF55002D640C /* college-gpa-calculatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79126E6D1F38CF55002D640C /* college-gpa-calculator */ = {
+			isa = PBXGroup;
+			children = (
+				7968A2571F3D593C0084EEF7 /* Maven_Pro */,
+				79126E6E1F38CF55002D640C /* AppDelegate.swift */,
+				79126E701F38CF55002D640C /* MainController.swift */,
+				79EF888F1F3D269A0025A838 /* ViewModel.swift */,
+				7942E68A1F3C1491007F54E9 /* NewSemesterView.swift */,
+				79EF888D1F3D19610025A838 /* NewClassView.swift */,
+				793C28381F397E4600C05C4F /* extension.swift */,
+				7969A04F1F3932B500923C68 /* GPModel.swift */,
+				7969A0511F3949DC00923C68 /* GPCellViews.swift */,
+				7969A0491F3925F800923C68 /* GPLabel.swift */,
+				7969A04B1F39269100923C68 /* GPView.swift */,
+				7969A04D1F39271600923C68 /* GPFlipView.swift */,
+				79126E781F38CF55002D640C /* Assets.xcassets */,
+				79126E7A1F38CF55002D640C /* LaunchScreen.storyboard */,
+				79126E7D1F38CF55002D640C /* Info.plist */,
+				79126E751F38CF55002D640C /* college_gpa_calculator.xcdatamodeld */,
+				79C40C0C1FD519FE00280986 /* SettingsView.swift */,
+				799D35551FD5D5BB005E7556 /* IAPPopup.swift */,
+				799D35591FD5E156005E7556 /* columnlayout.swift */,
+			);
+			path = "college-gpa-calculator";
+			sourceTree = "<group>";
+		};
+		79126E851F38CF55002D640C /* college-gpa-calculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				79126E861F38CF55002D640C /* college_gpa_calculatorTests.swift */,
+				79126E881F38CF55002D640C /* Info.plist */,
+			);
+			path = "college-gpa-calculatorTests";
+			sourceTree = "<group>";
+		};
+		79126E901F38CF55002D640C /* college-gpa-calculatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				79126E911F38CF55002D640C /* college_gpa_calculatorUITests.swift */,
+				79126E931F38CF55002D640C /* Info.plist */,
+			);
+			path = "college-gpa-calculatorUITests";
+			sourceTree = "<group>";
+		};
+		7968A2571F3D593C0084EEF7 /* Maven_Pro */ = {
+			isa = PBXGroup;
+			children = (
+				7968A2581F3D593C0084EEF7 /* MavenPro-Black.ttf */,
+				7968A2591F3D593C0084EEF7 /* MavenPro-Bold.ttf */,
+				7968A25A1F3D593C0084EEF7 /* MavenPro-Medium.ttf */,
+				7968A25B1F3D593C0084EEF7 /* MavenPro-Regular.ttf */,
+				7968A25C1F3D593C0084EEF7 /* OFL.txt */,
+			);
+			path = Maven_Pro;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79126E6A1F38CF54002D640C /* college-gpa-calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79126E961F38CF55002D640C /* Build configuration list for PBXNativeTarget "college-gpa-calculator" */;
+			buildPhases = (
+				0FBBAD6C92DE35C34E53F11B /* [CP] Check Pods Manifest.lock */,
+				79126E671F38CF54002D640C /* Sources */,
+				79126E681F38CF54002D640C /* Frameworks */,
+				79126E691F38CF54002D640C /* Resources */,
+				A8A8FFFE62F6C8EC3E34C053 /* [CP] Embed Pods Frameworks */,
+				7F1A01BAB5AC1AE68B3EEFF5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "college-gpa-calculator";
+			productName = "college-gpa-calculator";
+			productReference = 79126E6B1F38CF55002D640C /* college-gpa-calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79126E811F38CF55002D640C /* college-gpa-calculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79126E991F38CF55002D640C /* Build configuration list for PBXNativeTarget "college-gpa-calculatorTests" */;
+			buildPhases = (
+				A87878A0BA74566CFEB1EADD /* [CP] Check Pods Manifest.lock */,
+				79126E7E1F38CF55002D640C /* Sources */,
+				79126E7F1F38CF55002D640C /* Frameworks */,
+				79126E801F38CF55002D640C /* Resources */,
+				8395215790BECB0241CD260E /* [CP] Embed Pods Frameworks */,
+				F08AD971F979AFC3D0C6E2E3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79126E841F38CF55002D640C /* PBXTargetDependency */,
+			);
+			name = "college-gpa-calculatorTests";
+			productName = "college-gpa-calculatorTests";
+			productReference = 79126E821F38CF55002D640C /* college-gpa-calculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		79126E8C1F38CF55002D640C /* college-gpa-calculatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79126E9C1F38CF55002D640C /* Build configuration list for PBXNativeTarget "college-gpa-calculatorUITests" */;
+			buildPhases = (
+				1AA5254DC4E3D3986E11681B /* [CP] Check Pods Manifest.lock */,
+				79126E891F38CF55002D640C /* Sources */,
+				79126E8A1F38CF55002D640C /* Frameworks */,
+				79126E8B1F38CF55002D640C /* Resources */,
+				7F73F8BCEDA0FEB54C773262 /* [CP] Embed Pods Frameworks */,
+				F5ED1DBB36458E3B480CDC1A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79126E8F1F38CF55002D640C /* PBXTargetDependency */,
+			);
+			name = "college-gpa-calculatorUITests";
+			productName = "college-gpa-calculatorUITests";
+			productReference = 79126E8D1F38CF55002D640C /* college-gpa-calculatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79126E631F38CF54002D640C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Max Nelson";
+				TargetAttributes = {
+					79126E6A1F38CF54002D640C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VETRU2J3NX;
+						ProvisioningStyle = Automatic;
+					};
+					79126E811F38CF55002D640C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VETRU2J3NX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 79126E6A1F38CF54002D640C;
+					};
+					79126E8C1F38CF55002D640C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VETRU2J3NX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 79126E6A1F38CF54002D640C;
+					};
+				};
+			};
+			buildConfigurationList = 79126E661F38CF54002D640C /* Build configuration list for PBXProject "college-gpa-calculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 79126E621F38CF54002D640C;
+			productRefGroup = 79126E6C1F38CF55002D640C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79126E6A1F38CF54002D640C /* college-gpa-calculator */,
+				79126E811F38CF55002D640C /* college-gpa-calculatorTests */,
+				79126E8C1F38CF55002D640C /* college-gpa-calculatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79126E691F38CF54002D640C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7968A2611F3D593C0084EEF7 /* OFL.txt in Resources */,
+				79126E7C1F38CF55002D640C /* LaunchScreen.storyboard in Resources */,
+				7968A2601F3D593C0084EEF7 /* MavenPro-Regular.ttf in Resources */,
+				7968A25D1F3D593C0084EEF7 /* MavenPro-Black.ttf in Resources */,
+				79126E791F38CF55002D640C /* Assets.xcassets in Resources */,
+				7968A25E1F3D593C0084EEF7 /* MavenPro-Bold.ttf in Resources */,
+				7968A25F1F3D593C0084EEF7 /* MavenPro-Medium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79126E801F38CF55002D640C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79126E8B1F38CF55002D640C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FBBAD6C92DE35C34E53F11B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1AA5254DC4E3D3986E11681B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7F1A01BAB5AC1AE68B3EEFF5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-college-gpa-calculator/Pods-college-gpa-calculator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F73F8BCEDA0FEB54C773262 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-college-gpa-calculatorUITests/Pods-college-gpa-calculatorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8395215790BECB0241CD260E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-college-gpa-calculatorTests/Pods-college-gpa-calculatorTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A87878A0BA74566CFEB1EADD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A8A8FFFE62F6C8EC3E34C053 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-college-gpa-calculator/Pods-college-gpa-calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F08AD971F979AFC3D0C6E2E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-college-gpa-calculatorTests/Pods-college-gpa-calculatorTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5ED1DBB36458E3B480CDC1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-college-gpa-calculatorUITests/Pods-college-gpa-calculatorUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79126E671F38CF54002D640C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79126E711F38CF55002D640C /* MainController.swift in Sources */,
+				799D355A1FD5E156005E7556 /* columnlayout.swift in Sources */,
+				7969A0521F3949DC00923C68 /* GPCellViews.swift in Sources */,
+				79126E6F1F38CF55002D640C /* AppDelegate.swift in Sources */,
+				793C28391F397E4600C05C4F /* extension.swift in Sources */,
+				7969A04E1F39271600923C68 /* GPFlipView.swift in Sources */,
+				79126E771F38CF55002D640C /* college_gpa_calculator.xcdatamodeld in Sources */,
+				79EF888E1F3D19610025A838 /* NewClassView.swift in Sources */,
+				7969A04A1F3925F800923C68 /* GPLabel.swift in Sources */,
+				7942E68B1F3C1491007F54E9 /* NewSemesterView.swift in Sources */,
+				799D35561FD5D5BB005E7556 /* IAPPopup.swift in Sources */,
+				7969A0501F3932B500923C68 /* GPModel.swift in Sources */,
+				79EF88901F3D269A0025A838 /* ViewModel.swift in Sources */,
+				7969A04C1F39269100923C68 /* GPView.swift in Sources */,
+				79C40C0D1FD519FE00280986 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79126E7E1F38CF55002D640C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79126E871F38CF55002D640C /* college_gpa_calculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79126E891F38CF55002D640C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79126E921F38CF55002D640C /* college_gpa_calculatorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79126E841F38CF55002D640C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79126E6A1F38CF54002D640C /* college-gpa-calculator */;
+			targetProxy = 79126E831F38CF55002D640C /* PBXContainerItemProxy */;
+		};
+		79126E8F1F38CF55002D640C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79126E6A1F38CF54002D640C /* college-gpa-calculator */;
+			targetProxy = 79126E8E1F38CF55002D640C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79126E7A1F38CF55002D640C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79126E7B1F38CF55002D640C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79126E941F38CF55002D640C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79126E951F38CF55002D640C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		79126E971F38CF55002D640C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34563AAD6D45EF9E2759062E /* Pods-college-gpa-calculator.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VETRU2J3NX;
+				INFOPLIST_FILE = "college-gpa-calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MaxNelson.CollegeGPACalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		79126E981F38CF55002D640C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23B7485D97466804D81DA6D4 /* Pods-college-gpa-calculator.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VETRU2J3NX;
+				INFOPLIST_FILE = "college-gpa-calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MaxNelson.CollegeGPACalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		79126E9A1F38CF55002D640C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59CC1C0BCB53D23FA63359A4 /* Pods-college-gpa-calculatorTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = VETRU2J3NX;
+				INFOPLIST_FILE = "college-gpa-calculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maxnelsondevelopment.college-gpa-calculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/college-gpa-calculator.app/college-gpa-calculator";
+			};
+			name = Debug;
+		};
+		79126E9B1F38CF55002D640C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25C78BE37FCB745DC77D0732 /* Pods-college-gpa-calculatorTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = VETRU2J3NX;
+				INFOPLIST_FILE = "college-gpa-calculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maxnelsondevelopment.college-gpa-calculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/college-gpa-calculator.app/college-gpa-calculator";
+			};
+			name = Release;
+		};
+		79126E9D1F38CF55002D640C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DF77E45CBBF5F9019EDAAFB /* Pods-college-gpa-calculatorUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = VETRU2J3NX;
+				INFOPLIST_FILE = "college-gpa-calculatorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maxnelsondevelopment.college-gpa-calculatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "college-gpa-calculator";
+			};
+			name = Debug;
+		};
+		79126E9E1F38CF55002D640C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9409D2788A63326B62703B19 /* Pods-college-gpa-calculatorUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = VETRU2J3NX;
+				INFOPLIST_FILE = "college-gpa-calculatorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maxnelsondevelopment.college-gpa-calculatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "college-gpa-calculator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79126E661F38CF54002D640C /* Build configuration list for PBXProject "college-gpa-calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79126E941F38CF55002D640C /* Debug */,
+				79126E951F38CF55002D640C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79126E961F38CF55002D640C /* Build configuration list for PBXNativeTarget "college-gpa-calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79126E971F38CF55002D640C /* Debug */,
+				79126E981F38CF55002D640C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79126E991F38CF55002D640C /* Build configuration list for PBXNativeTarget "college-gpa-calculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79126E9A1F38CF55002D640C /* Debug */,
+				79126E9B1F38CF55002D640C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79126E9C1F38CF55002D640C /* Build configuration list for PBXNativeTarget "college-gpa-calculatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79126E9D1F38CF55002D640C /* Debug */,
+				79126E9E1F38CF55002D640C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		79126E751F38CF55002D640C /* college_gpa_calculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				79126E761F38CF55002D640C /* college_gpa_calculator.xcdatamodel */,
+			);
+			currentVersion = 79126E761F38CF55002D640C /* college_gpa_calculator.xcdatamodel */;
+			path = college_gpa_calculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 79126E631F38CF54002D640C /* Project object */;
+}

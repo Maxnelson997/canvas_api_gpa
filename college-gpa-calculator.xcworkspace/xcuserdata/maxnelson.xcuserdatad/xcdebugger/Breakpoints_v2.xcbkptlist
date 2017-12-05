@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/college-gpa-calculator-gdslkndwpyczgqaozdwyghfqkolw/Build/Intermediates/college-gpa-calculator.build/Debug-iphoneos/college-gpa-calculator.build/DerivedSources/CoreDataGenerated/college_gpa_calculator/Sems+CoreDataClass.swift"
+            timestampString = "524271506.424745"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/college-gpa-calculator-gdslkndwpyczgqaozdwyghfqkolw/Build/Intermediates/college-gpa-calculator.build/Debug-iphoneos/college-gpa-calculator.build/DerivedSources/CoreDataGenerated/college_gpa_calculator/Sems+CoreDataClass.swift"
+            timestampString = "524271506.424745"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

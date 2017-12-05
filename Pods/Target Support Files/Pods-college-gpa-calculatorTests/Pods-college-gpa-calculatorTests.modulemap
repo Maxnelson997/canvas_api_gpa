@@ -1,0 +1,6 @@
+framework module Pods_college_gpa_calculatorTests {
+  umbrella header "Pods-college-gpa-calculatorTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

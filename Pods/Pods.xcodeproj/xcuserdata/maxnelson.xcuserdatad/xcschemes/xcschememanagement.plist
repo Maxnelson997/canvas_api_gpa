@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Font-Awesome-Swift-Font-Awesome-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Font-Awesome-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-college-gpa-calculator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-college-gpa-calculatorTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-college-gpa-calculatorUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>47E7A76422E7765AB7DECFF91EEAF107</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7BE2A25E6B15EB8330C494C4227219E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9735AA72928D41DB06EA697E23930C72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A16AD6B5ED18C6AF2155AC0D5C64034</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BA453546C51032641C49CACBC22725EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
