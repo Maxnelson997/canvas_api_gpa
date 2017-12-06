@@ -98,7 +98,7 @@ class GPModel {
     
  
     
-    var userIsFreemium:Bool = false
+    var userIsFreemium:Bool = true //TESTTHIS
 
     var iapInfos:[String] = [
         //free    paid

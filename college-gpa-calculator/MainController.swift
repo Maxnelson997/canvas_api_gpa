@@ -178,7 +178,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         if UserDefaults.standard.bool(forKey: PurchaseManager.instance.IAP_REMOVE_ADS) {
             GPModel.sharedInstance.userIsFreemium = false
         } else {
-            GPModel.sharedInstance.userIsFreemium = false
+            GPModel.sharedInstance.userIsFreemium = true //TESTTHIS
         }
         
     }
@@ -714,13 +714,25 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     //flow
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == semester_cv {
-            let box_size = collectionView.frame.width/2 - 20
-            return CGSize(width: box_size, height: box_size)
+        if UIDevice.current.model == "iPhone" {
+            if collectionView == semester_cv {
+                let box_size = collectionView.frame.width/2 - 20
+                return CGSize(width: box_size, height: box_size)
+            } else {
+                let box_size = collectionView.frame.width - 20
+                return CGSize(width: box_size, height: box_size/3.5)
+            }
         } else {
-            let box_size = collectionView.frame.width - 20
-            return CGSize(width: box_size, height: box_size/3.5)
+            if collectionView == semester_cv {
+                let box_size = collectionView.frame.width / 4 - 20
+                return CGSize(width: box_size, height: box_size)
+            } else {
+                let box_size = collectionView.frame.width / 2 - 20
+                return CGSize(width: box_size, height: box_size/3.5)
+            }
+
         }
+
     }
     var footer_minus_ref:UIButton!
     

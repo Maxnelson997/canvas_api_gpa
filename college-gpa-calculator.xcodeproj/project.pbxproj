@@ -708,7 +708,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34563AAD6D45EF9E2759062E /* Pods-college-gpa-calculator.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = VETRU2J3NX;
 				INFOPLIST_FILE = "college-gpa-calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -717,7 +717,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -725,7 +725,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23B7485D97466804D81DA6D4 /* Pods-college-gpa-calculator.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = VETRU2J3NX;
 				INFOPLIST_FILE = "college-gpa-calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -734,7 +734,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
