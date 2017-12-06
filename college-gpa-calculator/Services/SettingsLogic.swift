@@ -19,6 +19,7 @@ class SettingsLogic {
     
     @objc func theme() {
         deli.main_controller.settings.selectingTheme = !deli.main_controller.settings.selectingTheme
+        deli.main_controller.rotateIcon(yes: deli.main_controller.settings.selectingTheme)
         if deli.main_controller.settings.selectingTheme {
             deli.main_controller.fade.removeTarget(nil, action: nil, for: .allTouchEvents)
             deli.main_controller.fade.addTarget(self, action: #selector(self.theme), for: .touchUpInside)

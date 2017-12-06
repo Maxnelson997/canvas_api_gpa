@@ -33,6 +33,8 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         return l
     }()
     
+    
+    
     let gpaLabel:GPLabel = {
         let g = GPLabel()
         g.font = UIFont.init(customFont: .MavenProBold, withSize: 20)
@@ -287,8 +289,19 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 
     }
 
+    @objc func rotateIcon(yes:Bool) {
+        var angle:CGFloat = 0
+        if yes {
+            angle = .pi
+        }
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.done_button.transform = CGAffineTransform(rotationAngle: angle)
+        }, completion: nil)
+    }
+
     @objc func animateSettings() {
         var position:CGFloat = -200
+        
         if sl.constant == -200 {
             position = 0
         }
@@ -299,7 +312,6 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
                 self.fade.alpha = 1
             } else {
                 self.fade.alpha = 0
-                
             }
         }) { (true) in
             //completion

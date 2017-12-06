@@ -68,6 +68,17 @@ class SettingCell:UICollectionViewCell {
     }
     
     @objc func change(s:UIButton) {
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
+            self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            self.alpha = 0.8
+        }, completion: { finished in
+            UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
+                self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.alpha = 1
+            }, completion: { finished in
+                print("finished displaying")
+            })
+        })
         (UIApplication.shared.delegate as! AppDelegate).main_controller.maxv.layerColors = getColors(at: s.tag)
     }
     
@@ -169,6 +180,7 @@ class SettingsView:UIView {
     var selectingTheme:Bool = false {
         didSet {
             cv.reloadData()
+            cv.reloadInputViews()
         }
     }
     
@@ -190,6 +202,8 @@ extension SettingsView: UICollectionViewDelegateFlowLayout, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sc", for: indexPath) as! SettingCell
         cell.so = selectingTheme
         cell.awakeFromNib()
+
+    
         if selectingTheme {
             let t = GPModel.sharedInstance.themeInfo[indexPath.item]
             cell.name.text = t.name
@@ -200,15 +214,31 @@ extension SettingsView: UICollectionViewDelegateFlowLayout, UICollectionViewData
         } else {
             let s = GPModel.sharedInstance.settingInfo[indexPath.item]
             cell.name.text = s.name
-            cell.stack.layerColors = getColors(at: 6)
+
+            cell.stack.layerColors = getColors(at: 7)
             cell.gestureRecognizers?.removeAll()
             cell.addGestureRecognizer(UITapGestureRecognizer(target: SettingsLogic.instance, action: s.selector))
             cell.icon.setFAIcon(icon: s.icon, iconSize: 30)
         }
         
+        cell.name.textColor = .darkGray
+        cell.icon.setFAColor(color: .darkGray)
+        
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 0
+        cell.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
+            cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+            cell.alpha = 1
+        }, completion: { finished in
+            print("finished displaying")
+        })
+    }
+    
     
     //delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
