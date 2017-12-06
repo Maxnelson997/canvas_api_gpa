@@ -1,12 +1,17 @@
 PODS:
   - Font-Awesome-Swift (1.6.2)
+  - NVActivityIndicatorView (4.0.0):
+    - NVActivityIndicatorView/Presenter (= 4.0.0)
+  - NVActivityIndicatorView/Presenter (4.0.0)
 
 DEPENDENCIES:
   - Font-Awesome-Swift (~> 1.6.2)
+  - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
   Font-Awesome-Swift: 4dc96df73b5f32aaccdee50a454c3ec253ee4977
+  NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
 
-PODFILE CHECKSUM: 2ea11c1d5f4a1c43a6c75830169b29e2f80e4645
+PODFILE CHECKSUM: 5ddcea37c8d32ff8642d7ca7f908f62c15542d7f
 
 COCOAPODS: 1.2.1

@@ -32,13 +32,21 @@ class SettingCell:UICollectionViewCell {
         return s
     }()
     
+    let btn:UIButton = {
+        var btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     var exists:Bool = false
+    
+    var so:Bool = false
     
     override func awakeFromNib() {
         if !exists {
             exists = true
             self.layer.masksToBounds = true
-            self.layer.cornerRadius = 5
+            self.layer.cornerRadius = 8
             self.contentView.addSubview(stack)
             NSLayoutConstraint.activate(stack.getConstraintsOfView(to: contentView, withInsets: UIEdgeInsets(top: 20, left: 20, bottom: -20, right: -20)))
             NSLayoutConstraint.activate([
@@ -49,10 +57,21 @@ class SettingCell:UICollectionViewCell {
                 ])
             self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dothis)))
         }
+        if so {
+            self.contentView.addSubview(btn)
+            NSLayoutConstraint.activate(btn.getConstraintsOfView(to: contentView, withInsets: .zero))
+            btn.addTarget(self, action: #selector(self.change(s:)), for: .touchUpInside)
+        } else {
+            btn.removeFromSuperview()
+        }
+        
     }
     
+    @objc func change(s:UIButton) {
+        (UIApplication.shared.delegate as! AppDelegate).main_controller.maxv.layerColors = getColors(at: s.tag)
+    }
     
-    func dothis() {
+    @objc func dothis() {
         print("unk")
     }
 
@@ -147,6 +166,11 @@ class SettingsView:UIView {
 
     }
     
+    var selectingTheme:Bool = false {
+        didSet {
+            cv.reloadData()
+        }
+    }
     
 }
 
@@ -157,14 +181,32 @@ extension SettingsView: UICollectionViewDelegateFlowLayout, UICollectionViewData
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if selectingTheme {
+            return GPModel.sharedInstance.themeInfo.count
+        }
         return GPModel.sharedInstance.settingInfo.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sc", for: indexPath) as! SettingCell
+        cell.so = selectingTheme
         cell.awakeFromNib()
-        let s = GPModel.sharedInstance.settingInfo[indexPath.item]
-        cell.name.text = s.name
-        cell.icon.setFAIcon(icon: s.icon, iconSize: 30)
+        if selectingTheme {
+            let t = GPModel.sharedInstance.themeInfo[indexPath.item]
+            cell.name.text = t.name
+            cell.stack.layerColors = t.colors
+            cell.gestureRecognizers?.removeAll()
+            cell.btn.tag = indexPath.item
+            cell.icon.setFAIcon(icon: .FADropbox, iconSize: 30)
+        } else {
+            let s = GPModel.sharedInstance.settingInfo[indexPath.item]
+            cell.name.text = s.name
+            cell.stack.layerColors = getColors(at: 6)
+            cell.gestureRecognizers?.removeAll()
+            cell.addGestureRecognizer(UITapGestureRecognizer(target: SettingsLogic.instance, action: s.selector))
+            cell.icon.setFAIcon(icon: s.icon, iconSize: 30)
+        }
+        
+        
         return cell
     }
     
@@ -172,4 +214,6 @@ extension SettingsView: UICollectionViewDelegateFlowLayout, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 120)
     }
+    
+
 }

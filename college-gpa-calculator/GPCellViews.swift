@@ -366,6 +366,7 @@ class GPStackView:UIStackView {
         
         
     }
+ 
     
     override class var layerClass: AnyClass {
         return CAGradientLayer.self
@@ -388,9 +389,21 @@ class MaxView:UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var layerColors:[CGColor] {
+        set {
+            if let laya = self.layer as? CAGradientLayer {
+                laya.colors = newValue
+                laya.locations = [0.0, 0.5]
+            }
+        }
+        get {
+            return [ UIColor(rgb: 0x82D15C).cgColor, UIColor(rgb: 0x11C2D3).cgColor ]
+        }
+    }
+    
     func phaseTwo() {
         if let laya = self.layer as? CAGradientLayer {
-            laya.colors = [ UIColor(rgb: 0xFFFFFF).cgColor, UIColor(rgb: 0x11C2D3).cgColor ]
+            laya.colors = getColors()
             laya.locations = [0.0, 1.20]
         }
         self.addDropShadowToView()
@@ -421,15 +434,73 @@ class new_semester_footer:UICollectionReusableView {
     
     var active:Bool = false
     
+    var rightIcon:FAType = .FAThumbsUp
+    var leftIcon:FAType = .FAThumbsDown
+    //YES I KNOW THIS IS HORRIBLE!!!! :( BUT IM NOT LOOKIN TO RE-FACTOR THIS JUNK
+    var iap:Bool = false
+    
+    let yes = UIButton()
+    let no = UIButton()
+    let restore = UIButton()
+    
     override func awakeFromNib() {
         if !active {
-            cancel_button.frame = CGRect(x: 0, y: 0, width: self.frame.height, height: self.frame.height)
-            cancel_button.setFAIcon(icon: FAType.FAThumbsDown, forState: .normal)
-            let plus = UIBarButtonItem(customView: cancel_button)
+            if iap {
+                
+                yes.translatesAutoresizingMaskIntoConstraints = false
+                yes.setTitle("GET", for: .normal)
+                yes.titleLabel?.textColor = .white
+                yes.titleLabel?.font = UIFont.init(customFont: .MavenProBold, withSize: 25)
+                
+                no.translatesAutoresizingMaskIntoConstraints = false
+                no.setTitle("NAH", for: .normal)
+                no.titleLabel?.textColor = .white
+                no.titleLabel?.font = UIFont.init(customFont: .MavenProBold, withSize: 25)
+                
+                restore.translatesAutoresizingMaskIntoConstraints = false
+                restore.setTitle("restore purchase", for: .normal)
+                restore.titleLabel?.textColor = .white
+                restore.titleLabel?.font = UIFont.init(customFont: .MavenProBold, withSize: 12)
+                
+                let stack = UIStackView()
+                stack.translatesAutoresizingMaskIntoConstraints = false
+                stack.axis = .horizontal
+                stack.distribution = .fillEqually
+                
+                let mainstack = UIStackView()
+                mainstack.translatesAutoresizingMaskIntoConstraints = false
+                mainstack.axis = .vertical
+              
+                
+                
+                self.addSubview(mainstack)
+                
+                NSLayoutConstraint.activate(mainstack.getConstraintsOfView(to: self, withInsets: .zero))
+                
+                stack.addArrangedSubview(no)
+                stack.addArrangedSubview(yes)
+                mainstack.addArrangedSubview(stack)
+                mainstack.addArrangedSubview(restore)
+                
+                NSLayoutConstraint.activate([
+
+                    restore.leftAnchor.constraint(equalTo: mainstack.leftAnchor),
+                    restore.rightAnchor.constraint(equalTo: mainstack.rightAnchor),
+                    stack.heightAnchor.constraint(equalTo: mainstack.heightAnchor, multiplier: 0.75),
+                    restore.heightAnchor.constraint(equalTo: mainstack.heightAnchor, multiplier: 0.25)
+                    ])
+                
+                
+            } else {
+                cancel_button.frame = CGRect(x: 0, y: 0, width: self.frame.height, height: self.frame.height)
+                cancel_button.setFAIcon(icon: leftIcon, forState: .normal)
+                let plus = UIBarButtonItem(customView: cancel_button)
+                
+                done_button.frame = CGRect(x: 0, y: 0, width: self.frame.height, height: self.frame.height)
+                done_button.setFAIcon(icon: rightIcon, forState: .normal)
+                let minus = UIBarButtonItem(customView: done_button)
             
-            done_button.frame = CGRect(x: 0, y: 0, width: self.frame.height, height: self.frame.height)
-            done_button.setFAIcon(icon: FAType.FAThumbsUp, forState: .normal)
-            let minus = UIBarButtonItem(customView: done_button)
+
             
             let flexspace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
             
@@ -449,6 +520,7 @@ class new_semester_footer:UICollectionReusableView {
                 toolbar.leftAnchor.constraint(equalTo: self.leftAnchor),
                 toolbar.rightAnchor.constraint(equalTo: self.rightAnchor)
                 ])
+            }
         }
     }
     

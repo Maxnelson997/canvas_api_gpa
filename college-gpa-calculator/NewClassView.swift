@@ -18,7 +18,7 @@ class NewClassView: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UIColl
   
     let model = GPModel.sharedInstance
     
-    func resignText() {
+    @objc func resignText() {
         title_box.resignFirstResponder()
     }
     
@@ -113,7 +113,7 @@ class NewClassView: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UIColl
         l.textColor = .darkGray
         l.layer.cornerRadius = 12
         l.layer.masksToBounds = true
-        l.attributedPlaceholder = NSAttributedString(string: "CLASS NAME", attributes: [NSForegroundColorAttributeName:UIColor.black.withAlphaComponent(0.5), NSFontAttributeName:UIFont.init(customFont: .MavenProRegular, withSize: 18)!])
+        l.attributedPlaceholder = NSAttributedString(string: "CLASS NAME", attributes: [NSAttributedStringKey.foregroundColor:UIColor.black.withAlphaComponent(0.5), NSAttributedStringKey.font:UIFont.init(customFont: .MavenProRegular, withSize: 18)!])
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
@@ -316,7 +316,7 @@ class NewClassView: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UIColl
         } else {
             titleData = s_hours[row]
         }
-        let myTitle = NSAttributedString(string: titleData!, attributes: [NSFontAttributeName:UIFont.init(customFont: .MavenProRegular, withSize: 15)!,NSForegroundColorAttributeName:UIColor.black])
+        let myTitle = NSAttributedString(string: titleData!, attributes: [NSAttributedStringKey.font:UIFont.init(customFont: .MavenProRegular, withSize: 15)!,NSAttributedStringKey.foregroundColor:UIColor.black])
         return myTitle
     }
     
@@ -368,14 +368,14 @@ class NewClassView: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UIColl
         }, completion: nil)
         
     }
-    func cancel_class() {
+    @objc func cancel_class() {
         delegate.showAlpha()
         print("canceled adding class")
         self.removeFromSuperview()
         model.class_is_being_edited = false
     }
     
-    func add_class() {
+    @objc func add_class() {
         var title_text:String = ""
         if let text = title_box.text {
             title_text = text

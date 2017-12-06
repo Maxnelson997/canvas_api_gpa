@@ -27,6 +27,51 @@ extension UIView {
 struct SettingModel {
     var name:String!
     var icon:FAType!
+    var selector:Selector!
+}
+
+struct ThemeModel {
+    var name:String!
+    var colors:[CGColor]!
+}
+
+func getColors(at:Int? = -1) -> [CGColor] {
+    var switchVal = GPModel.sharedInstance.themeNumber
+    
+    if at != -1 {
+        switchVal = at!
+    }
+    
+    switch switchVal {
+    case 0:
+        //classic blue
+        return [ UIColor(rgb: 0xFFFFFF).cgColor, UIColor(rgb: 0x11C2D3).cgColor ]
+    case 1:
+        //galaxy gray
+        return [UIColor(rgb: 0xBABABA).cgColor, UIColor(rgb: 0xACACAC).cgColor]
+    case 2:
+        //bitchin blue
+       return [UIColor(rgb: 0x9BE8FF).cgColor, UIColor(rgb: 0xFFFFFF).cgColor]
+    case 3:
+        //rip rosegolden
+        return [UIColor(rgb: 0xFC9BFF).cgColor, UIColor(rgb: 0xFFF2CF).cgColor]
+    case 4:
+        //godly golden
+        return [UIColor(rgb: 0xFFF966).cgColor, UIColor(rgb: 0xFCFFD6).cgColor]
+    case 5:
+        //poppin purple
+        return [UIColor(rgb: 0xDCC1FF).cgColor, UIColor(rgb: 0xCADDFF).cgColor]
+    case 6:
+        //possibly another
+        return [ UIColor(rgb: 0x42C8FF).withAlphaComponent(1).cgColor, UIColor(rgb: 0x575858).withAlphaComponent(1).cgColor ]
+        
+    case 7:
+        //possibly another
+        return [ UIColor(rgb: 0x42C8FF).withAlphaComponent(1).cgColor, UIColor(rgb: 0xCADDFF).withAlphaComponent(1).cgColor ]
+    default:
+        break
+    }
+    return [UIColor.white.cgColor, UIColor.black.cgColor]
 }
 
 class GPModel {
@@ -34,23 +79,33 @@ class GPModel {
     private init() {}
     
     
-    var dtheme:Bool = false
+
+
     
+    var themeNumber:Int = 0
     
     var settingInfo:[SettingModel] = [
-        SettingModel(name: "Reset App", icon: FAType.FARefresh),
-        SettingModel(name: "Theme", icon: FAType.FACircleO), //pro feature
-//        SettingModel(name: "Theme", icon: FAType.FACircleO), //pro feature
-        SettingModel(name: "Feedback", icon: FAType.FAEnvelopeO),
-        SettingModel(name: "Share", icon: FAType.FAPaperPlaneO),
-        SettingModel(name: "Instagram", icon: FAType.FAInstagram),
+        SettingModel(name: "Reset App", icon: FAType.FARefresh, selector: #selector(SettingsLogic.reset)),
+        SettingModel(name: "Theme", icon: FAType.FACircleO, selector: #selector(SettingsLogic.theme)), //pro feature
+        //        SettingModel(name: "Theme", icon: FAType.FACircleO), //pro feature
+        SettingModel(name: "Feedback", icon: FAType.FAEnvelopeO, selector: #selector(SettingsLogic.feedback)),
+        SettingModel(name: "Share", icon: FAType.FAPaperPlaneO, selector: #selector(SettingsLogic.share)),
+        SettingModel(name: "Instagram", icon: FAType.FAInstagram, selector: #selector(SettingsLogic.instagram)),
     ]
+    
+    var themeInfo:[ThemeModel] = [
+        
+    ]
+    
+    
+ 
     
     var userIsFreemium:Bool = true
 
     var iapInfos:[String] = [
         //free    paid
-        "one semester", "unlimited semesters", "only four classes", "unlimited classes", "", "only $1.99. Tuition is thousands.", "", "Themes!", "", "All future features free"
+        "one semester\n👎", "unlimited semesters \n🎓", "only four classes\n👎", "unlimited classes\n👍", "", "only $1.99 💸. Tuition is thousands!", "", "Themes!\n💯", "Future features will cost more\n👎", "All future features free!\n👍"
+//        👍👎
     ]
     var class_is_being_edited:Bool = false
     var class_being_edited:Int = 0

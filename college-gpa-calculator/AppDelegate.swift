@@ -21,16 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func BarButton(withIcon: FAType, withSelector: Selector) -> UIBarButtonItem {
         let b = UIButton(type: .custom)
-        if GPModel.sharedInstance.dtheme { b.setFATitleColor(color: .darkGray) } else { b.setFATitleColor(color: .darkGray) }
+        b.setFATitleColor(color: .darkGray) 
         b.setFAIcon(icon: withIcon, iconSize: 30, forState: UIControlState.normal)
         b.contentHorizontalAlignment = .left
         b.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         b.addTarget(main_controller, action: withSelector, for: .touchUpInside)
         return UIBarButtonItem(customView: b)
     }
+//    var maxv:MaxView!
+//    func addBG() {
+//        maxv = MaxView(frame: UIScreen.main.bounds)
+//        maxv.removeFromSuperview()
+//        window?.insertSubview(maxv, at: 0)
+//    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         main_controller = MainController()
 //        nav = UINavigationController(rootViewController: main_controller)
 //            main_controller.navigationItem.leftBarButtonItem = BarButton(withIcon: FAType.FABars, withSelector: #selector(main_controller.animateSettings))
@@ -38,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
                            self.main_controller.gpaBoxLabel.animate(toText: self.viewModel.calculate_all_semester_gpa())
             })
-
+            
         })
 
         
@@ -48,6 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = main_controller
         
+//        maxv = MaxView(frame: UIScreen.main.bounds)
+//        window?.insertSubview(maxv, at: 0)
+//
+        PurchaseManager.instance.fetchProducts()
 //        for family: String in UIFont.familyNames
 //        {
 //            print("--\(family)")

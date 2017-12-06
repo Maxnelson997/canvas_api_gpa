@@ -46,8 +46,9 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
         l.font = UIFont.init(customFont: .MavenProRegular, withSize: 18)
         l.textAlignment = .center
         l.backgroundColor = .clear
-        l.text = "Dope Edition!"
+        l.text = "💯Dope Edition!🔥"
         return l
+//        🎉💯☕️🤓🎓💸🔥😎
     }()
     
     var season_label:GPLabel = {
@@ -89,7 +90,7 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
                 l.font = UIFont.init(customFont: .MavenProRegular, withSize: 18)
                 l.textAlignment = .center
                 l.layer.cornerRadius = 12
-                l.numberOfLines = 2
+                l.numberOfLines = 3
                 l.layer.masksToBounds = true
                 //            l.text = "placeholder"
                 
@@ -253,8 +254,10 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footer", for: indexPath) as! new_semester_footer
             //            footer.frame.size = CGSize(width: collectionView.frame.width - 40, height: 50)
             footer.frame = CGRect(x: 20, y: footer.frame.origin.y, width: collectionView.frame.width - 40, height: 50)
-            footer.cancel_button.addTarget(self, action: #selector(self.cancel_semester), for: .touchUpInside)
-            footer.done_button.addTarget(self, action: #selector(self.perform_iap), for: .touchUpInside)
+            footer.yes.addTarget(self, action: #selector(self.perform_iap), for: .touchUpInside)
+            footer.no.addTarget(self, action: #selector(self.cancel_iap), for: .touchUpInside)
+            footer.restore.addTarget(self, action: #selector(self.restore_iap), for: .touchUpInside)
+            footer.iap = true
             footer.awakeFromNib()
             return footer
         default:
@@ -274,15 +277,20 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
         }, completion: nil)
         
     }
-    func cancel_semester() {
-        delegate.showAlpha()
+    @objc func cancel_iap() {
+        delegate.performInAppPurchase(yes: false)
         self.removeFromSuperview()
-        
-        
+        print("not performing iap")
     }
-    var purchase:Bool = false
-    func perform_iap() {
-        delegate.performInAppPurchase(yes: purchase)
+
+    @objc func perform_iap() {
+        delegate.performInAppPurchase(yes: true)
+        self.removeFromSuperview()
+        print("performing iap")
+    }
+    
+    @objc func restore_iap() {
+        delegate.restoreInAppPurchase()
         self.removeFromSuperview()
         print("performing iap")
     }

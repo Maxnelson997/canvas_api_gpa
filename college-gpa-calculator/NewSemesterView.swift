@@ -13,6 +13,7 @@ protocol GPNewDataDelegate {
     func addSemester(title:String)
     func addClass(title:String, grade:String, hour:Int)
     func performInAppPurchase(yes:Bool)
+    func restoreInAppPurchase()
     func showAlpha()
 }
 
@@ -229,7 +230,7 @@ class NewSemesterView: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UIC
         } else {
             titleData = s_years[row]
         }
-        let myTitle = NSAttributedString(string: titleData!, attributes: [NSFontAttributeName:UIFont.init(customFont: .MavenProRegular, withSize: 15)!,NSForegroundColorAttributeName:UIColor.black])
+        let myTitle = NSAttributedString(string: titleData!, attributes: [NSAttributedStringKey.font:UIFont.init(customFont: .MavenProRegular, withSize: 15)!,NSAttributedStringKey.foregroundColor:UIColor.black])
         return myTitle
     }
 
@@ -282,14 +283,12 @@ class NewSemesterView: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UIC
         }, completion: nil)
         
     }
-    func cancel_semester() {
+    @objc func cancel_semester() {
         delegate.showAlpha()
         self.removeFromSuperview()
-
-        
     }
     
-    func add_semester() {
+    @objc func add_semester() {
         delegate.addSemester(title:header_label.text!)
         self.removeFromSuperview()
         print("added semester")

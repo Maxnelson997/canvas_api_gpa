@@ -8,8 +8,11 @@
 
 import UIKit
 import Font_Awesome_Swift
+import NVActivityIndicatorView
+import StoreKit
 
 class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, GPNewDataDelegate {
+    
     
     var fade:UIButton = {
         let v = UIButton()
@@ -70,7 +73,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     let viewModel:ViewModel = ViewModel()
     
     let flipView:GPFlipView = GPFlipView()
-
+    let settings = SettingsView()
     let semester_cv:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -136,7 +139,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     var top_stack_cons:[NSLayoutConstraint]!
     var label_stack_cons:[NSLayoutConstraint]!
     var cv_cons:[NSLayoutConstraint]!
-    func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
+    @objc func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
         switch(gesture.state) {
             
         case UIGestureRecognizerState.began:
@@ -152,7 +155,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
             semester_cv.cancelInteractiveMovement()
         }
     }
-    func handleLongGestureClasses(_ gesture: UILongPressGestureRecognizer) {
+    @objc func handleLongGestureClasses(_ gesture: UILongPressGestureRecognizer) {
         switch(gesture.state) {
             
         case UIGestureRecognizerState.began:
@@ -168,9 +171,19 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
             class_cv.cancelInteractiveMovement()
         }
     }
+    
+    var maxv = MaxView(frame: UIScreen.main.bounds)
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = MaxView(frame: UIScreen.main.bounds)
+        model.themeInfo = [
+            ThemeModel(name: "classic blue", colors: getColors(at: 0)),
+            ThemeModel(name: "galaxy gray", colors: getColors(at: 1)), //pro feature
+            //        SettingModel(name: "Theme", icon: FAType.FACircleO), //pro feature
+            ThemeModel(name: "bitchin blue", colors: getColors(at: 2)),
+            ThemeModel(name: "rip rosegolden", colors: getColors(at: 3)),
+            ThemeModel(name: "godly golden", colors: getColors(at: 4)),
+            ThemeModel(name: "poppin purple", colors: getColors(at: 5)),]
+        self.view = maxv
         infoLabel.textColor = UIColor.darkGray
         infoLabel.text = "SEMESTERS"
         infoLabel.backgroundColor = .clear
@@ -242,7 +255,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         fade.alpha = 0
         fade.addTarget(self, action: #selector(self.animateSettings), for: .touchUpInside)
         
-        let settings = SettingsView()
+        
         self.view.addSubview(settings)
         sw = settings.widthAnchor.constraint(equalToConstant: 150)
         sl = settings.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -200)
@@ -274,7 +287,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 
     }
 
-    func animateSettings() {
+    @objc func animateSettings() {
         var position:CGFloat = -200
         if sl.constant == -200 {
             position = 0
@@ -380,7 +393,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     var new_semester_cons:[NSLayoutConstraint]!
     var new_class_cons:[NSLayoutConstraint]!
     //VMMV view logic or model logic or something
-    func add_semester() {
+    @objc func add_semester() {
         if model.semesters.count >= 1 && GPModel.sharedInstance.userIsFreemium {
             //pop up to purchase pro edition
             //pro edition is $1.99. Almost nothing compared to the price of tuition but will make sure you get the most out of your tuition!
@@ -421,25 +434,49 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         semester_cv.alpha = 0
     }
     
-    func performInAppPurchase(yes:Bool) {
-        if yes {
-            //
-        } else {
-            //
-        }
-        NSLayoutConstraint.deactivate(iap_popup_cons)
-        iap_popup_view.removeFromSuperview()
+    func restoreiap() {
 
-        
+        print("purchases restored")
     }
     
-    func cancel_removal() {
+    
+    func performInAppPurchase(yes:Bool) {
+        semester_cv.alpha = 1
+        let loading = NVActivityIndicatorView(frame: CGRect(x: view.frame.width/2 - 25, y: view.frame.height/2 - 25, width: 50, height: 50), type: .ballPulseSync, color: .white)
+        view.addSubview(loading)
+        loading.startAnimating()
+            //charge user $1.99 - Ask user for touch id purchase $1.99 !!!!!!!DOPENESS!!!!!!!!!
+            PurchaseManager.instance.purchaseDopeEdition { success in
+                //dismiss spinner
+                 loading.stopAnimating()
+                if success {
+                    //dopness achieved
+                   
+                    NSLayoutConstraint.deactivate(self.iap_popup_cons)
+                    self.iap_popup_view.removeFromSuperview()
+            
+                } else {
+                    
+                    //tell user dopeness could not be achieved at this time #failed
+                }
+                
+            }
+    
+    }
+    
+ 
+    
+    func restoreInAppPurchase() {
+
+    }
+    
+    @objc func cancel_removal() {
         is_editing = false
         semester_cv.reloadData()
         class_cv.reloadData()
     }
     
-    func remove_semester() {
+    @objc func remove_semester() {
         print("remove semester")
         is_editing = true
   
@@ -460,7 +497,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         semester_cv.reloadData()
     }
     
-    func remove_class() {
+    @objc func remove_class() {
         print("remove class")
         is_editing = true
         
@@ -476,7 +513,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
        
     }
     
-    func add_class() {
+    @objc func add_class() {
 
         new_class_cons = new_class_view.getConstraintsOfView(to: flipView.secondView)
         new_class_view.delegate = self
@@ -662,7 +699,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         return CGSize(width: collectionView.frame.width, height: 50)
     }
     
-    func SwitchView() {
+    @objc func SwitchView() {
         infoLabel.animate(toText: "\(String(describing: self.model.semesters.count)) SEMESTERS")
         gpaBoxLabel.animate(toText: String(describing: viewModel.calculate_all_semester_gpa()))
         gpaLabel.animate(toText: "TOTAL GPA")
@@ -691,5 +728,8 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 //        return 10
 //    }
 
+
 }
+
+
 

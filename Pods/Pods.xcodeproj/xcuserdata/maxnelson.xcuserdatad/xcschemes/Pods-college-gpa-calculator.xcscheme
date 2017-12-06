@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7BE2A25E6B15EB8330C494C4227219E8"
+               BlueprintIdentifier = "ACF457983A6DC4A16DD6185FDF493A5D"
                BuildableName = "Pods_college_gpa_calculator.framework"
                BlueprintName = "Pods-college-gpa-calculator"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7BE2A25E6B15EB8330C494C4227219E8"
+            BlueprintIdentifier = "ACF457983A6DC4A16DD6185FDF493A5D"
             BuildableName = "Pods_college_gpa_calculator.framework"
             BlueprintName = "Pods-college-gpa-calculator"
             ReferencedContainer = "container:Pods.xcodeproj">
