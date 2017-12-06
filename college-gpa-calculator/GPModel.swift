@@ -42,13 +42,14 @@ func getColors(at:Int? = -1) -> [CGColor] {
         switchVal = at!
     }
     
+    
     switch switchVal {
     case 0:
         //classic blue
         return [ UIColor(rgb: 0xFFFFFF).cgColor, UIColor(rgb: 0x11C2D3).cgColor ]
     case 1:
-        //galaxy gray
-        return [UIColor(rgb: 0xBABABA).cgColor, UIColor(rgb: 0xACACAC).cgColor]
+        //poppin purple
+        return [UIColor(rgb: 0xDCC1FF).cgColor, UIColor(rgb: 0xCADDFF).cgColor]
     case 2:
         //bitchin blue
        return [UIColor(rgb: 0x9BE8FF).cgColor, UIColor(rgb: 0xFFFFFF).cgColor]
@@ -59,13 +60,9 @@ func getColors(at:Int? = -1) -> [CGColor] {
         //godly golden
         return [UIColor(rgb: 0xFFF966).cgColor, UIColor(rgb: 0xFCFFD6).cgColor]
     case 5:
-        //poppin purple
-        return [UIColor(rgb: 0xDCC1FF).cgColor, UIColor(rgb: 0xCADDFF).cgColor]
+        //galaxy gray
+        return [UIColor(rgb: 0xBABABA).cgColor, UIColor(rgb: 0xACACAC).cgColor]
     case 6:
-        //possibly another
-        return [ UIColor(rgb: 0x42C8FF).withAlphaComponent(1).cgColor, UIColor(rgb: 0x575858).withAlphaComponent(1).cgColor ]
-        
-    case 7:
         //possibly another
         return [ UIColor(rgb: 0x42C8FF).withAlphaComponent(1).cgColor, UIColor(rgb: 0xCADDFF).withAlphaComponent(1).cgColor ]
     default:
@@ -79,10 +76,11 @@ class GPModel {
     private init() {}
     
     
-
-
     
-    var themeNumber:Int = 0
+
+    var currentTheme:[CGColor] = [UIColor(rgb: 0x9BE8FF).cgColor, UIColor(rgb: 0xFFFFFF).cgColor]
+    
+    var themeNumber:Int = 2
     
     var settingInfo:[SettingModel] = [
         SettingModel(name: "Reset App", icon: FAType.FARefresh, selector: #selector(SettingsLogic.reset)),
@@ -104,7 +102,7 @@ class GPModel {
 
     var iapInfos:[String] = [
         //free    paid
-        "one semester\n👎", "unlimited semesters \n🎓", "only four classes\n👎", "unlimited classes\n👍", "", "only $1.99 💸. Tuition is thousands!", "", "Themes!\n💯", "Future features will cost more\n👎", "All future features free!\n👍"
+        "one semester\n👎", "unlimited semesters \n🎓", "only four classes\n👎", "unlimited classes\n👍", "", "only $1.99 💸. Tuition is thousands!", "", "Themes!\n💯💯💯", "Future features will cost more\n👎", "All future features free!\n👍"
 //        👍👎
     ]
     var class_is_being_edited:Bool = false

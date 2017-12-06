@@ -68,6 +68,7 @@ class SettingCell:UICollectionViewCell {
     }
     
     @objc func change(s:UIButton) {
+        
         UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
             self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             self.alpha = 0.8
@@ -79,7 +80,15 @@ class SettingCell:UICollectionViewCell {
                 print("finished displaying")
             })
         })
-        (UIApplication.shared.delegate as! AppDelegate).main_controller.maxv.layerColors = getColors(at: s.tag)
+        if GPModel.sharedInstance.userIsFreemium {
+            (UIApplication.shared.delegate as! AppDelegate).main_controller.animateSettings()
+            (UIApplication.shared.delegate as! AppDelegate).main_controller.show_iap_from_menu()
+        } else {
+            //change theme user has iap
+            GPModel.sharedInstance.currentTheme = getColors(at: s.tag)
+            (UIApplication.shared.delegate as! AppDelegate).main_controller.maxv.layerColors = getColors(at: s.tag)
+        }
+
     }
     
     @objc func dothis() {
@@ -215,7 +224,8 @@ extension SettingsView: UICollectionViewDelegateFlowLayout, UICollectionViewData
             let s = GPModel.sharedInstance.settingInfo[indexPath.item]
             cell.name.text = s.name
 
-            cell.stack.layerColors = getColors(at: 7)
+//            cell.stack.layerColors = getColors(at: 7)
+            cell.stack.layerColors = GPModel.sharedInstance.currentTheme
             cell.gestureRecognizers?.removeAll()
             cell.addGestureRecognizer(UITapGestureRecognizer(target: SettingsLogic.instance, action: s.selector))
             cell.icon.setFAIcon(icon: s.icon, iconSize: 30)

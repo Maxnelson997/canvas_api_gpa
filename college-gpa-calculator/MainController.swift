@@ -10,6 +10,7 @@ import UIKit
 import Font_Awesome_Swift
 import NVActivityIndicatorView
 import StoreKit
+import PopupDialog
 
 class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, GPNewDataDelegate {
     
@@ -177,14 +178,24 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     var maxv = MaxView(frame: UIScreen.main.bounds)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.bool(forKey: PurchaseManager.instance.IAP_REMOVE_ADS) {
+            GPModel.sharedInstance.userIsFreemium = false
+        } else {
+            GPModel.sharedInstance.userIsFreemium = true
+        }
+        
         model.themeInfo = [
             ThemeModel(name: "classic blue", colors: getColors(at: 0)),
-            ThemeModel(name: "galaxy gray", colors: getColors(at: 1)), //pro feature
+            ThemeModel(name: "poppin purple", colors: getColors(at: 1)),
+             //pro feature
             //        SettingModel(name: "Theme", icon: FAType.FACircleO), //pro feature
             ThemeModel(name: "bitchin blue", colors: getColors(at: 2)),
             ThemeModel(name: "rip rosegolden", colors: getColors(at: 3)),
             ThemeModel(name: "godly golden", colors: getColors(at: 4)),
-            ThemeModel(name: "poppin purple", colors: getColors(at: 5)),]
+            ThemeModel(name: "galaxy gray", colors: getColors(at: 5)),
+            ThemeModel(name: "bustin blue", colors: getColors(at: 6))
+        ]
         self.view = maxv
         infoLabel.textColor = UIColor.darkGray
         infoLabel.text = "SEMESTERS"
@@ -435,6 +446,16 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 
     }
     
+    func show_iap_from_menu() {
+        if flipView.isFlipped {
+            //this case will only be possible when user is in settings
+            SwitchViewWith(completion: { () in
+                self.show_iap_popup()
+            })
+        } else {
+            self.show_iap_popup()
+        }
+    }
     func show_iap_popup() {
         iap_popup_cons = iap_popup_view.getConstraintsOfView(to: flipView.firstView)
         iap_popup_view.delegate = self
@@ -442,7 +463,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         self.flipView.firstView.addSubview(iap_popup_view)
         NSLayoutConstraint.activate(iap_popup_cons)
         iap_popup_view.cv.reloadData()
-//        iap_popup_view.load()
+        //        iap_popup_view.load()
         semester_cv.alpha = 0
     }
     
@@ -454,29 +475,40 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     func performInAppPurchase(yes:Bool) {
         semester_cv.alpha = 1
-        let loading = NVActivityIndicatorView(frame: CGRect(x: view.frame.width/2 - 25, y: view.frame.height/2 - 25, width: 50, height: 50), type: .ballPulseSync, color: .white)
+        let loading = NVActivityIndicatorView(frame: CGRect(x: view.frame.width/2 - 20, y: view.frame.height/2 - 20, width: 40, height: 40), type: .ballRotateChase, color: .white)
         view.addSubview(loading)
         loading.startAnimating()
             //charge user $1.99 - Ask user for touch id purchase $1.99 !!!!!!!DOPENESS!!!!!!!!!
             PurchaseManager.instance.purchaseDopeEdition { success in
                 //dismiss spinner
-                 loading.stopAnimating()
+                loading.stopAnimating()
+                var pop:PopupDialog!
                 if success {
                     //dopness achieved
-                   
                     NSLayoutConstraint.deactivate(self.iap_popup_cons)
                     self.iap_popup_view.removeFromSuperview()
-            
+                    pop = PopupDialog(title: "Dopeness Achieved", message: "Dope Edition successfuly purchased.")
                 } else {
-                    
+                    pop = PopupDialog(title: "Dopeness Not Achieved", message: "Purchase Failed, try again.")
                     //tell user dopeness could not be achieved at this time #failed
                 }
+                self.present(pop, animated: true, completion: nil)
+                delay(4, closure: {
+                    pop.dismiss()
+                })
                 
             }
     
     }
     
- 
+    func cancelInAppPurchase() {
+        semester_cv.alpha = 1
+        let pop = PopupDialog(title: "Dopeness Not Achieved", message: "Still not dope. Maybe next time fam.")
+        present(pop, animated: true, completion: nil)
+        delay(4, closure: {
+            pop.dismiss()
+        })
+    }
     
     func restoreInAppPurchase() {
 
@@ -526,26 +558,34 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     @objc func add_class() {
-
-        new_class_cons = new_class_view.getConstraintsOfView(to: flipView.secondView)
-        new_class_view.delegate = self
-        flipView.secondView.addSubview(new_class_view)
-        NSLayoutConstraint.activate(new_class_cons)
-        new_class_view.cv.reloadData()
-        new_class_view.load()
-        class_cv.alpha = 0
-        //popup view asking for user input
-        //textfield asking for class name
+        if model.semesters[0].classes.count >= 4 && GPModel.sharedInstance.userIsFreemium {
+            //pop up to purchase pro edition
+            //pro edition is $1.99. Almost nothing compared to the price of tuition but will make sure you get the most out of your tuition!
+            SwitchViewWith(completion: { () in
+                self.show_iap_popup()
+            })
+        } else {
+            new_class_cons = new_class_view.getConstraintsOfView(to: flipView.secondView)
+            new_class_view.delegate = self
+            flipView.secondView.addSubview(new_class_view)
+            NSLayoutConstraint.activate(new_class_cons)
+            new_class_view.cv.reloadData()
+            new_class_view.load()
+            class_cv.alpha = 0
+            //popup view asking for user input
+            //textfield asking for class name
             //CLASS NAME
-        //pickeview with twocolumns 
+            //pickeview with twocolumns
             //GRADE - CREDIT HOUR
             //---------------------
             //A+          4
             //B+          3
-        //ADD button at the bottom
-        //view fades new class cell pops in
-        //GPA for semester updates. this is when I perform the logic of all classes adding up. do this for all semesters too.
-        print("add class")
+            //ADD button at the bottom
+            //view fades new class cell pops in
+            //GPA for semester updates. this is when I perform the logic of all classes adding up. do this for all semesters too.
+            print("add class")
+        }
+
     }
     
 
@@ -614,6 +654,24 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 
     }
     
+    func flipToClasses() {
+        infoLabel.animate(toText: model.semesters[model.selected_semester_index].name)
+        gpaBoxLabel.animate(toText: viewModel.calculate_semester_gpa())
+        gpaLabel.animate(toText: "SEMESTER GPA")
+        self.class_cv.alpha = 0
+        flipView.switchViews {
+            UIView.animate(withDuration: 0.15, animations: {
+                self.class_cv.alpha = 1
+            })
+            if self.class_cv.delegate == nil {
+                self.class_cv.delegate = self
+                self.class_cv.dataSource = self
+            } else {
+                self.class_cv.reloadData()
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == semester_cv {
             if is_editing {
@@ -622,21 +680,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
             } else {
                 model.selected_semester_index = indexPath.item
                 
-                infoLabel.animate(toText: model.semesters[model.selected_semester_index].name)
-                gpaBoxLabel.animate(toText: viewModel.calculate_semester_gpa())
-                gpaLabel.animate(toText: "SEMESTER GPA")
-                self.class_cv.alpha = 0
-                flipView.switchViews {
-                    UIView.animate(withDuration: 0.15, animations: {
-                        self.class_cv.alpha = 1
-                    })
-                    if self.class_cv.delegate == nil {
-                        self.class_cv.delegate = self
-                        self.class_cv.dataSource = self
-                    } else {
-                        self.class_cv.reloadData()
-                    }
-                }
+                flipToClasses()
             }
 
         } else {
@@ -721,6 +765,22 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
                 self.semester_cv.alpha = 1
             }, completion: { finished in
                 
+            })
+            self.semester_cv.reloadData()
+            
+        }
+    }
+    
+    func SwitchViewWith(completion: @escaping () -> ()) {
+        infoLabel.animate(toText: "\(String(describing: self.model.semesters.count)) SEMESTERS")
+        gpaBoxLabel.animate(toText: String(describing: viewModel.calculate_all_semester_gpa()))
+        gpaLabel.animate(toText: "TOTAL GPA")
+        self.semester_cv.alpha = 0
+        flipView.switchViews {
+            UIView.animate(withDuration: 0.15, animations: {
+                self.semester_cv.alpha = 1
+            }, completion: { finished in
+                completion()
             })
             self.semester_cv.reloadData()
             

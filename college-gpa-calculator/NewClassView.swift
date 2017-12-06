@@ -376,17 +376,19 @@ class NewClassView: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UIColl
     }
     
     @objc func add_class() {
-        var title_text:String = ""
-        if let text = title_box.text {
-            title_text = text
-        }
-        
-        if title_text.isEmpty {
-            title_text = "new class"
-        }
-        delegate.addClass(title: title_text, grade: selected_grade, hour: Int((selected_hour as NSString).intValue))
-        self.removeFromSuperview()
-        print("added class to semester")
+
+            var title_text:String = ""
+            if let text = title_box.text {
+                title_text = text
+            }
+            
+            if title_text.isEmpty {
+                title_text = "new class"
+            }
+            delegate.addClass(title: title_text, grade: selected_grade, hour: Int((selected_hour as NSString).intValue))
+            self.removeFromSuperview()
+            print("added class to semester")
+     
     }
     
     required init?(coder aDecoder: NSCoder) {

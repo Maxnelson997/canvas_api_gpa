@@ -219,7 +219,7 @@ class CVHeader:UICollectionReusableView {
     var stack_cons:[NSLayoutConstraint]!
     var active:Bool = false
     override func awakeFromNib() {
-        backBtn.setFAIcon(icon: FAType.FAArrowLeft, forState: .normal)
+        backBtn.setFAIcon(icon: FAType.FAChevronLeft, forState: .normal)
         //        backBtn.setTitleColor(UIColor.white, for: .normal)
         
         if !active {
@@ -352,6 +352,7 @@ class GPStackView:UIStackView {
         }
     }
     
+    
     var colors:[CGColor] = [ UIColor(rgb: 0x42C8FF).withAlphaComponent(1).cgColor, UIColor(rgb: 0x575858).withAlphaComponent(1).cgColor ]
     
     func phaseTwo() {
@@ -449,17 +450,17 @@ class new_semester_footer:UICollectionReusableView {
                 
                 yes.translatesAutoresizingMaskIntoConstraints = false
                 yes.setTitle("GET", for: .normal)
-                yes.titleLabel?.textColor = .white
+                yes.setTitleColor(.darkGray, for: .normal)
                 yes.titleLabel?.font = UIFont.init(customFont: .MavenProBold, withSize: 25)
                 
                 no.translatesAutoresizingMaskIntoConstraints = false
                 no.setTitle("NAH", for: .normal)
-                no.titleLabel?.textColor = .white
+                no.setTitleColor(.darkGray, for: .normal)
                 no.titleLabel?.font = UIFont.init(customFont: .MavenProBold, withSize: 25)
                 
                 restore.translatesAutoresizingMaskIntoConstraints = false
                 restore.setTitle("restore purchase", for: .normal)
-                restore.titleLabel?.textColor = .white
+                restore.setTitleColor(.darkGray, for: .normal)
                 restore.titleLabel?.font = UIFont.init(customFont: .MavenProBold, withSize: 12)
                 
                 let stack = UIStackView()

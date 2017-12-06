@@ -15,6 +15,7 @@ protocol GPNewDataDelegate {
     func performInAppPurchase(yes:Bool)
     func restoreInAppPurchase()
     func showAlpha()
+    func cancelInAppPurchase()
 }
 
 class NewSemesterView: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {

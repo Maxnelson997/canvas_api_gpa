@@ -43,7 +43,7 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
     
     var header_label:GPLabel = {
         let l = GPLabel()
-        l.font = UIFont.init(customFont: .MavenProRegular, withSize: 18)
+        l.font = UIFont.init(customFont: .MavenProBold, withSize: 20)
         l.textAlignment = .center
         l.backgroundColor = .clear
         l.text = "💯Dope Edition!🔥"
@@ -53,18 +53,20 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
     
     var season_label:GPLabel = {
         let l = GPLabel()
-        l.font = UIFont.init(customFont: .MavenProRegular, withSize: 18)
+        l.font = UIFont.init(customFont: .MavenProBold, withSize: 20)
         l.textAlignment = .center
         l.backgroundColor = .clear
+        l.textColor = .green
         l.text = "Free"
         return l
     }()
     
     var year_label:GPLabel = {
         let l = GPLabel()
-        l.font = UIFont.init(customFont: .MavenProRegular, withSize: 18)
+        l.font = UIFont.init(customFont: .MavenProBold, withSize: 20)
         l.textAlignment = .center
         l.backgroundColor = .clear
+        l.textColor = .green
         l.text = "$1.99"
         return l
     }()
@@ -87,7 +89,7 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
             if !cell.exists {
                 cell.exists = true
                 let l = GPLabel()
-                l.font = UIFont.init(customFont: .MavenProRegular, withSize: 18)
+                l.font = UIFont.init(customFont: .MavenProBold, withSize: 20)
                 l.textAlignment = .center
                 l.layer.cornerRadius = 12
                 l.numberOfLines = 3
@@ -247,6 +249,7 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
             header.backgroundColor = UIColor.darkGray.withAlphaComponent(0.2)
             header.layer.cornerRadius = 12
             header.layer.masksToBounds = true
+        
             
             
             return header
@@ -278,7 +281,7 @@ class IAPPopup: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
         
     }
     @objc func cancel_iap() {
-        delegate.performInAppPurchase(yes: false)
+        delegate.cancelInAppPurchase()
         self.removeFromSuperview()
         print("not performing iap")
     }

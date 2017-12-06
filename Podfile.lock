@@ -3,15 +3,18 @@ PODS:
   - NVActivityIndicatorView (4.0.0):
     - NVActivityIndicatorView/Presenter (= 4.0.0)
   - NVActivityIndicatorView/Presenter (4.0.0)
+  - PopupDialog (0.6.0)
 
 DEPENDENCIES:
   - Font-Awesome-Swift (~> 1.6.2)
   - NVActivityIndicatorView
+  - PopupDialog (~> 0.6)
 
 SPEC CHECKSUMS:
   Font-Awesome-Swift: 4dc96df73b5f32aaccdee50a454c3ec253ee4977
   NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
+  PopupDialog: 687af43af0f7b89948cd411ac701865f931bd6dc
 
-PODFILE CHECKSUM: 5ddcea37c8d32ff8642d7ca7f908f62c15542d7f
+PODFILE CHECKSUM: a484eb3db6f9c7ec3c7bf8a56af64d98221db8b8
 
 COCOAPODS: 1.2.1

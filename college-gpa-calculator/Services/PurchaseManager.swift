@@ -34,6 +34,7 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransaction
                 }
             case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
+                GPModel.sharedInstance.userIsFreemium = true
                 transactionComplete?(false)
             case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
@@ -66,6 +67,7 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransaction
             products = response.products
         }
     }
+
     
     func purchaseDopeEdition(completion: @escaping CompletionHandler) {
         if SKPaymentQueue.canMakePayments() && products.count > 0 {
