@@ -34,6 +34,8 @@
 		799D355A1FD5E156005E7556 /* columnlayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799D35591FD5E156005E7556 /* columnlayout.swift */; };
 		79BE2ABF1FD772260064CBCE /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE2ABE1FD772260064CBCE /* PurchaseManager.swift */; };
 		79C40C0D1FD519FE00280986 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C40C0C1FD519FE00280986 /* SettingsView.swift */; };
+		79E7C9831FD8444D0064F12B /* feedbackview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E7C9821FD8444D0064F12B /* feedbackview.swift */; };
+		79E7C9851FD846730064F12B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79E7C9841FD846730064F12B /* GoogleService-Info.plist */; };
 		79EF888E1F3D19610025A838 /* NewClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF888D1F3D19610025A838 /* NewClassView.swift */; };
 		79EF88901F3D269A0025A838 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF888F1F3D269A0025A838 /* ViewModel.swift */; };
 		F6374B4AF59413361EBC7FFB /* Pods_college_gpa_calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 920210E14C150891BE5C0979 /* Pods_college_gpa_calculator.framework */; };
@@ -93,6 +95,8 @@
 		799D35591FD5E156005E7556 /* columnlayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = columnlayout.swift; sourceTree = "<group>"; };
 		79BE2ABE1FD772260064CBCE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		79C40C0C1FD519FE00280986 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		79E7C9821FD8444D0064F12B /* feedbackview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedbackview.swift; sourceTree = "<group>"; };
+		79E7C9841FD846730064F12B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79EF888D1F3D19610025A838 /* NewClassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClassView.swift; sourceTree = "<group>"; };
 		79EF888F1F3D269A0025A838 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7DF77E45CBBF5F9019EDAAFB /* Pods-college-gpa-calculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-college-gpa-calculatorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-college-gpa-calculatorUITests/Pods-college-gpa-calculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 		79126E621F38CF54002D640C = {
 			isa = PBXGroup;
 			children = (
+				79E7C9821FD8444D0064F12B /* feedbackview.swift */,
 				79126E6D1F38CF55002D640C /* college-gpa-calculator */,
 				79126E851F38CF55002D640C /* college-gpa-calculatorTests */,
 				79126E901F38CF55002D640C /* college-gpa-calculatorUITests */,
@@ -179,6 +184,7 @@
 		79126E6D1F38CF55002D640C /* college-gpa-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				79E7C9841FD846730064F12B /* GoogleService-Info.plist */,
 				79BE2ABD1FD772120064CBCE /* Services */,
 				7968A2571F3D593C0084EEF7 /* Maven_Pro */,
 				79126E6E1F38CF55002D640C /* AppDelegate.swift */,
@@ -370,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7968A2611F3D593C0084EEF7 /* OFL.txt in Resources */,
+				79E7C9851FD846730064F12B /* GoogleService-Info.plist in Resources */,
 				79126E7C1F38CF55002D640C /* LaunchScreen.storyboard in Resources */,
 				7968A2601F3D593C0084EEF7 /* MavenPro-Regular.ttf in Resources */,
 				7968A25D1F3D593C0084EEF7 /* MavenPro-Black.ttf in Resources */,
@@ -539,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79126E711F38CF55002D640C /* MainController.swift in Sources */,
+				79E7C9831FD8444D0064F12B /* feedbackview.swift in Sources */,
 				799D355A1FD5E156005E7556 /* columnlayout.swift in Sources */,
 				7969A0521F3949DC00923C68 /* GPCellViews.swift in Sources */,
 				79126E6F1F38CF55002D640C /* AppDelegate.swift in Sources */,

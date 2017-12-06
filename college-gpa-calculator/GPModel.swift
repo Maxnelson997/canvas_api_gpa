@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Font_Awesome_Swift
-
+import PopupDialog
 
 extension UIView {
     func getConstraintsOfView(to: UIView, withInsets:UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) -> [NSLayoutConstraint] {
@@ -98,7 +98,7 @@ class GPModel {
     
  
     
-    var userIsFreemium:Bool = true
+    var userIsFreemium:Bool = false
 
     var iapInfos:[String] = [
         //free    paid
@@ -115,6 +115,118 @@ class GPModel {
     ]
     
     var context:NSManagedObjectContext!
+    
+    func get_theme_coredata(completion: @escaping () -> Void)  {
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Theme")
+        
+        request.returnsObjectsAsFaults = false
+        do
+        {
+            let results = try context.fetch(request)
+            print(results.count)
+            if results.count != 0 {
+                //there is data previously saved
+               
+                //snatch the color index
+                for result in results as! [NSManagedObject]{
+                    if let i = result.value(forKey: "index") as? Int {
+                        self.themeNumber = i
+                    }
+                }
+        
+            } else {
+                print("theme not saved in Core Data")
+            }
+        }
+        catch
+        {
+            print("hmm error retreiving theme")
+        }
+    }
+    
+    //remove theme index from core data
+    func RemoveThemeIndexFromCD() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Theme")
+        request.returnsObjectsAsFaults = false
+        
+        if let results = try? context.fetch(request) {
+            for result in results as! [NSManagedObject] {
+                result.setValue(2, forKey: "index")
+                self.themeNumber = 2
+            }
+        }
+    }
+    
+    func RemoveClassesFromCD() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Classes")
+        request.returnsObjectsAsFaults = false
+        
+        if let results = try? context.fetch(request) {
+            for result in results as! [NSManagedObject] {
+                result.setValue("", forKey: "grade")
+                result.setValue("", forKey: "gpa")
+                result.setValue(0, forKey: "hours")
+                result.setValue(0, forKey: "location")
+                result.setValue("", forKey: "name")
+            }
+        }
+    }
+
+    func RemoveSemsFromCD() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Sems")
+        request.returnsObjectsAsFaults = false
+        
+        if let results = try? context.fetch(request) {
+            for result in results as! [NSManagedObject] {
+                result.setValue(0, forKey: "class_count")
+                result.setValue("", forKey: "gpa")
+                result.setValue("", forKey: "name")
+            }
+        }
+    }
+    
+    func removeAllCD() {
+        RemoveThemeIndexFromCD()
+        RemoveClassesFromCD()
+        RemoveSemsFromCD()
+    }
+
+    
+    func SaveThemeCoredata() {
+        var coreDataObject:NSManagedObject!
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Theme")
+        
+        request.returnsObjectsAsFaults = false
+        
+        if let objectResults = try? context.fetch(request) {
+            if objectResults.count != 0 {
+                //saved stuff, snatch existing data.
+                coreDataObject = objectResults.first as! NSManagedObject
+            } else {
+                //no stuff, save it
+                coreDataObject = NSEntityDescription.insertNewObject(forEntityName: "Theme", into: context)
+                
+            }
+            
+        } else {
+            assert(false, "failure snatching context entity")
+        }
+        
+        coreDataObject.setValue(self.themeNumber, forKey: "index")
+        print("saving: \(self.themeNumber)")
+
+        
+        do {
+            try context.save()
+        }
+        catch {
+
+        }
+        
+        
+    }
 
     func get_semesters_coredata(completion: @escaping () -> Void)  {
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

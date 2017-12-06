@@ -6,6 +6,10 @@ target 'college-gpa-calculator' do
   use_frameworks!
 pod 'PopupDialog', '~> 0.6'
 pod 'NVActivityIndicatorView'
+
+  pod 'Firebase/Database'
+  pod 'Firebase/Core'
+
   # Pods for college-gpa-calculator
 
   pod 'Font-Awesome-Swift', '~> 1.6.2'

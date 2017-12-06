@@ -76,7 +76,7 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     let viewModel:ViewModel = ViewModel()
     
     let flipView:GPFlipView = GPFlipView()
-    let settings = SettingsView()
+    let settings:SettingsView = SettingsView()
     let semester_cv:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -174,16 +174,20 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
             class_cv.cancelInteractiveMovement()
         }
     }
+    func checkPurchases() {
+        if UserDefaults.standard.bool(forKey: PurchaseManager.instance.IAP_REMOVE_ADS) {
+            GPModel.sharedInstance.userIsFreemium = false
+        } else {
+            GPModel.sharedInstance.userIsFreemium = false
+        }
+        
+    }
     
     var maxv = MaxView(frame: UIScreen.main.bounds)
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.bool(forKey: PurchaseManager.instance.IAP_REMOVE_ADS) {
-            GPModel.sharedInstance.userIsFreemium = false
-        } else {
-            GPModel.sharedInstance.userIsFreemium = true
-        }
+        checkPurchases()
         
         model.themeInfo = [
             ThemeModel(name: "classic blue", colors: getColors(at: 0)),
@@ -467,10 +471,6 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         semester_cv.alpha = 0
     }
     
-    func restoreiap() {
-
-        print("purchases restored")
-    }
     
     
     func performInAppPurchase(yes:Bool) {
@@ -511,7 +511,20 @@ class MainController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func restoreInAppPurchase() {
-
+        semester_cv.alpha = 1
+        PurchaseManager.instance.restorePurchases { success in
+            if success {
+                self.checkPurchases()
+                //dopness achieved
+                NSLayoutConstraint.deactivate(self.iap_popup_cons)
+                self.iap_popup_view.removeFromSuperview()
+                var pop = PopupDialog(title: "Dopeness Achieved", message: "Dope Edition successfuly restored.")
+                self.present(pop, animated: true, completion: nil)
+                delay(4, closure: {
+                    pop.dismiss()
+                })
+            }
+        }
     }
     
     @objc func cancel_removal() {

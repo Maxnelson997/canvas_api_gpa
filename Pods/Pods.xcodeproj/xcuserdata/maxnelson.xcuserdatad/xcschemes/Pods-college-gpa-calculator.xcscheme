@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "317FE632276EC6B6AE570ACB63DDDE78"
+               BlueprintIdentifier = "1EBC90CD742D7C69F0612AF5BCB39B8B"
                BuildableName = "Pods_college_gpa_calculator.framework"
                BlueprintName = "Pods-college-gpa-calculator"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "317FE632276EC6B6AE570ACB63DDDE78"
+            BlueprintIdentifier = "1EBC90CD742D7C69F0612AF5BCB39B8B"
             BuildableName = "Pods_college_gpa_calculator.framework"
             BlueprintName = "Pods-college-gpa-calculator"
             ReferencedContainer = "container:Pods.xcodeproj">

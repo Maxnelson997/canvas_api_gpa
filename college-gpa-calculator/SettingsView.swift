@@ -86,6 +86,7 @@ class SettingCell:UICollectionViewCell {
         } else {
             //change theme user has iap
             GPModel.sharedInstance.currentTheme = getColors(at: s.tag)
+            GPModel.sharedInstance.themeNumber = s.tag
             (UIApplication.shared.delegate as! AppDelegate).main_controller.maxv.layerColors = getColors(at: s.tag)
         }
 
@@ -141,6 +142,7 @@ class SettingsView:UIView {
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(SettingCell.self, forCellWithReuseIdentifier: "sc")
         cv.backgroundColor = .clear
+        
         return cv
     }()
     
@@ -163,13 +165,15 @@ class SettingsView:UIView {
     
     let space:UIView = UIView()
     func phaseTwo() {
-        
+        GPModel.sharedInstance.currentTheme = getColors(at: GPModel.sharedInstance.themeNumber)
+//        backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
         if let laya = self.layer as? CAGradientLayer {
             laya.colors = [ UIColor(rgb: 0xFFFFFF).cgColor, UIColor(rgb: 0x11C2D3).cgColor ]
+//            laya.colors = getColors(at: GPModel.sharedInstance.themeNumber)
             laya.locations = [0.0, 1.20]
         }
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 12
+        self.layer.cornerRadius = 0
         addSubview(stack)
         NSLayoutConstraint.activate(stack.getConstraintsOfView(to: self))
         stack.addArrangedSubview(space)

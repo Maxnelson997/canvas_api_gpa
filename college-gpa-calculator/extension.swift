@@ -15,6 +15,21 @@ enum CustomFont: String {
     case MavenProMedium = "MavenPro-Medium"
 }
 
+
+enum Direction:CGFloat {
+    case up = -1
+    case down = 1
+    case back = 0
+}
+
+extension UIView {
+    func animateView(direction:Direction, distance:CGFloat) {
+        UIView.animate(withDuration: 0.3) {
+            self.transform = CGAffineTransform(translationX: 0, y: distance * direction.rawValue)
+        }
+    }
+}
+
 extension UIFont {
     convenience init?(customFont: CustomFont, withSize size: CGFloat) {
         self.init(name: customFont.rawValue, size: size)
